@@ -1,0 +1,36 @@
+nginx:
+  build: ./nginx
+  links:
+    - express1:express1
+    - express2:express2
+    - express3:express3
+    - socket1:socket1
+    - socket2:socket2
+    - socket3:socket3
+  ports:
+    - "80:80"
+    - "8080:8080"
+express1:
+  build: ./express
+  ports:
+    - "3000"
+express2:
+  build: ./express
+  ports:
+    - "3000"
+express3:
+  build: ./express
+  ports:
+    - "3000"
+socket1:
+  build: ./websocket
+  ports:
+    - "8080"
+socket2:
+  build: ./websocket
+  ports:
+    - "8080"
+socket3:
+  build: ./websocket
+  ports:
+    - "8080"
